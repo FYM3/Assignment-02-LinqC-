@@ -1,6 +1,7 @@
 ﻿using Assignment_02_LinqC_.DataSources;
 using Assignment_02_LinqC_.Models;
 using System.Diagnostics.Metrics;
+using System.Runtime.CompilerServices;
 
 namespace Assignment_02_LinqC_
 {
@@ -140,9 +141,19 @@ namespace Assignment_02_LinqC_
 
             #region Q10
 
-            var TotalNumber = Source.ProductList.Sum(X => X.UnitsInStock);
+            //var TotalNumber = Source.ProductList.Sum(X => X.UnitsInStock);
 
-            Console.WriteLine($"Total number of units in stock: {TotalNumber}");
+            //Console.WriteLine($"Total number of units in stock: {TotalNumber}");
+
+            #endregion
+
+            #region Q11
+
+            var MostEXPENSIVE = Source.ProductList.Max(X => X.UnitPrice);
+            var MostCHEAPEST = Source.ProductList.Min(X => X.UnitPrice);
+
+            Console.WriteLine($"Most Expensive Product: {MostEXPENSIVE}");
+            Console.WriteLine($"Most Cheapest Product: {MostCHEAPEST}");
 
             #endregion
         }
