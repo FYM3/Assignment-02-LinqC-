@@ -193,9 +193,17 @@ namespace Assignment_02_LinqC_
 
             #region Q15
 
-            Dictionary<int, Product> pairs = Source.ProductList.ToDictionary(p => p.ProductID);
+            //Dictionary<int, Product> pairs = Source.ProductList.ToDictionary(p => p.ProductID);
 
-            Console.WriteLine($"Product ID: {pairs[18].ProductID}, Product Name: {pairs[18].ProductName}, Category: {pairs[18].Category}");
+            //Console.WriteLine($"Product ID: {pairs[18].ProductID}, Product Name: {pairs[18].ProductName}, Category: {pairs[18].Category}");
+
+            #endregion
+
+            #region Q16
+
+            var Firstproduct = Source.ProductList.FirstOrDefault(X => X.UnitPrice > 50);
+
+            Console.WriteLine($"First product with unit price > 50: {Firstproduct?.ProductName ?? "Not found"}");
 
             #endregion
 
