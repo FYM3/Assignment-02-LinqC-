@@ -237,10 +237,22 @@ namespace Assignment_02_LinqC_
 
             //var Names = Source.ProductList.Take(3)
             //                  .Select(X => X.ProductName)
-            //                  .Concat(Source.CustomerList.Take(3).Select(X => X.Address));
+            //                  .Concat(Source.CustomerList.Take(3).Select(X => X.CustomerName));
 
             //foreach (var name in Names)
             //    Console.WriteLine(name);
+
+            #endregion
+
+            #region Q21
+
+            //var Pairs = Source.ProductList
+            //                  .Take(Source.CustomerList.Count())
+            //                  .Zip(Source.CustomerList,
+            //                       (P, C) => $"{P.ProductName} sold to {C.CustomerName}");
+
+            //foreach (var item in Pairs)
+            //    Console.WriteLine(item);
 
             #endregion
 
