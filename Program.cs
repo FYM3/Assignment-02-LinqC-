@@ -51,7 +51,16 @@ namespace Assignment_02_LinqC_
 
             #endregion
 
-            
+            #region Q5
+
+            int[] ids = { 3, 9, 13, 18 };
+
+            if (ids.Contains(9))
+                Console.WriteLine("Is Found");
+            else
+                Console.WriteLine("Can't Find");
+
+            #endregion
         }
     }
 }
