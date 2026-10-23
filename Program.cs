@@ -21,17 +21,26 @@ namespace Assignment_02_LinqC_
 
             #region Q2
 
-            var Page2ofproducts = Source.ProductList
-                                .OrderBy(X => X.ProductName).Skip((2 - 1) * 5)
-                                .Take(5);
+            //var Page2ofproducts = Source.ProductList
+            //                    .OrderBy(X => X.ProductName).Skip((2 - 1) * 5)
+            //                    .Take(5);
 
-            foreach (var product in Page2ofproducts)
+            //foreach (var product in Page2ofproducts)
+            //    Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
+
+            #endregion
+
+            #region Q3
+
+            var ProductsLess25 = Source.ProductList
+                                    .OrderBy(X => X.UnitPrice)
+                                    .TakeWhile(X => X.UnitPrice < 25);
+
+            foreach (var product in ProductsLess25)
                 Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
 
             #endregion
 
-
-            
         }
     }
 }
