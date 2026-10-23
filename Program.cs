@@ -201,12 +201,20 @@ namespace Assignment_02_LinqC_
 
             #region Q16
 
-            var Firstproduct = Source.ProductList.FirstOrDefault(X => X.UnitPrice > 50);
+            //var Firstproduct = Source.ProductList.FirstOrDefault(X => X.UnitPrice > 50);
 
-            Console.WriteLine($"First product with unit price > 50: {Firstproduct?.ProductName ?? "Not found"}");
+            //Console.WriteLine($"First product with unit price > 50: {Firstproduct?.ProductName ?? "Not found"}");
 
             #endregion
 
+            #region Q17
+
+            var Firstproduct = Source.ProductList.FirstOrDefault(X => X.UnitPrice > 500);
+
+
+            Console.WriteLine($"First product with unit price > 500: {Firstproduct?.ProductName ?? "Not found"}");
+
+            #endregion
 
         }
     }
