@@ -217,10 +217,19 @@ namespace Assignment_02_LinqC_
 
             #region Q18
 
-            var Table = Enumerable.Range(1, 10).Select(X => $"7 x {X} = {7 * X}");
+            //var Table = Enumerable.Range(1, 10).Select(X => $"7 x {X} = {7 * X}");
 
-            foreach (var item in Table)
-                Console.WriteLine(item);
+            //foreach (var item in Table)
+            //    Console.WriteLine(item);
+
+            #endregion
+
+            #region Q19
+
+            //var EvenNumbers = Enumerable.Range(1, 30).Where(X => X % 2 == 0);
+
+            //foreach (var number in EvenNumbers)
+            //    Console.WriteLine(number);
 
             #endregion
 
