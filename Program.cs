@@ -10,16 +10,26 @@ namespace Assignment_02_LinqC_
 
             #region Q1
 
-            var Top3products = Source.ProductList
-                                .OrderByDescending(N => N.UnitPrice)
-                                .Take(3);
+            //var Top3products = Source.ProductList
+            //                    .OrderByDescending(N => N.UnitPrice)
+            //                    .Take(3);
 
-            foreach (var product in Top3products)
+            //foreach (var product in Top3products)
+            //    Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
+
+            #endregion
+
+            #region Q2
+
+            var Page2ofproducts = Source.ProductList
+                                .OrderBy(X => X.ProductName).Skip((2 - 1) * 5)
+                                .Take(5);
+
+            foreach (var product in Page2ofproducts)
                 Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
 
             #endregion
 
-            
         }
     }
 }
