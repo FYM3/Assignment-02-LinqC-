@@ -1,5 +1,6 @@
 ﻿using Assignment_02_LinqC_.DataSources;
 using Assignment_02_LinqC_.Models;
+using System.Diagnostics.Metrics;
 
 namespace Assignment_02_LinqC_
 {
@@ -112,6 +113,27 @@ namespace Assignment_02_LinqC_
 
                 foreach (var name in group.ProductName)
                     Console.WriteLine($"   {name}");
+            }
+
+            #endregion
+
+            #region Q9
+
+            var CustomerGroups = from S in Source.CustomerList
+                              group S by S.Country
+                                   into G
+                              select new
+                              {
+                                  Country = G.Key,
+                                  Count = G.Count(),
+                                  TotalOrderValue = G.SelectMany(C => C.Orders).Sum(O => O.Total)
+                              };
+
+            foreach (var group in CustomerGroups)
+            {
+                Console.WriteLine($"Country: {group.Country}");
+                Console.WriteLine($"Count: {group.Count}");
+                Console.WriteLine($"Total Order Value: {group.TotalOrderValue}");
             }
 
             #endregion
