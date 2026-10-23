@@ -233,6 +233,17 @@ namespace Assignment_02_LinqC_
 
             #endregion
 
+            #region Q20
+
+            //var Names = Source.ProductList.Take(3)
+            //                  .Select(X => X.ProductName)
+            //                  .Concat(Source.CustomerList.Take(3).Select(X => X.Address));
+
+            //foreach (var name in Names)
+            //    Console.WriteLine(name);
+
+            #endregion
+
         }
     }
 }
