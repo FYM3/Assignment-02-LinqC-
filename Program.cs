@@ -32,15 +32,26 @@ namespace Assignment_02_LinqC_
 
             #region Q3
 
-            var ProductsLess25 = Source.ProductList
-                                    .OrderBy(X => X.UnitPrice)
-                                    .TakeWhile(X => X.UnitPrice < 25);
+            //var ProductsLess25 = Source.ProductList
+            //                        .OrderBy(X => X.UnitPrice)
+            //                        .TakeWhile(X => X.UnitPrice < 25);
 
-            foreach (var product in ProductsLess25)
-                Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
+            //foreach (var product in ProductsLess25)
+            //    Console.WriteLine($"Product Name: {product.ProductName}, Unit Price: {product.UnitPrice}");
 
             #endregion
 
+            #region Q4
+
+            var Allproducts = Source.ProductList
+                                    .Where(X => X.Category == "Seafood")
+                                    .All(X => X.UnitsInStock > 0);
+
+            Console.WriteLine($"All products are seafood and in stock: {Allproducts}");
+
+            #endregion
+
+            
         }
     }
 }
