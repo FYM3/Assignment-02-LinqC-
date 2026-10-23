@@ -43,22 +43,33 @@ namespace Assignment_02_LinqC_
 
             #region Q4
 
-            var Allproducts = Source.ProductList
-                                    .Where(X => X.Category == "Seafood")
-                                    .All(X => X.UnitsInStock > 0);
+            //var Allproducts = Source.ProductList
+            //                        .Where(X => X.Category == "Seafood")
+            //                        .All(X => X.UnitsInStock > 0);
 
-            Console.WriteLine($"All products are seafood and in stock: {Allproducts}");
+            //Console.WriteLine($"All products are seafood and in stock: {Allproducts}");
 
             #endregion
 
             #region Q5
 
-            int[] ids = { 3, 9, 13, 18 };
+            //int[] ids = { 3, 9, 13, 18 };
 
-            if (ids.Contains(9))
-                Console.WriteLine("Is Found");
-            else
-                Console.WriteLine("Can't Find");
+            //if (ids.Contains(9))
+            //    Console.WriteLine("Is Found");
+            //else
+            //    Console.WriteLine("Can't Find");
+
+            #endregion
+
+            #region Q6
+
+            var Groupallproducts = Source.ProductList
+                                    .GroupBy(X => X.Category);
+
+            foreach (var group in Groupallproducts)
+                Console.WriteLine($"Group {group.Key}: {group.Count()}");
+
 
             #endregion
         }
