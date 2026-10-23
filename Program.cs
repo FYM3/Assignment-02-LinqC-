@@ -64,12 +64,32 @@ namespace Assignment_02_LinqC_
 
             #region Q6
 
-            var Groupallproducts = Source.ProductList
-                                    .GroupBy(X => X.Category);
+            //var Groupallproducts = Source.ProductList
+            //                        .GroupBy(X => X.Category);
 
-            foreach (var group in Groupallproducts)
-                Console.WriteLine($"Group {group.Key}: {group.Count()}");
+            //foreach (var group in Groupallproducts)
+            //    Console.WriteLine($"Group {group.Key}: {group.Count()}");
 
+
+            #endregion
+
+            #region Q7
+
+            var Groupproducts = Source.ProductList
+                                .GroupBy(X => X.Category)
+                                .Select(X => new 
+                                { Category = X.Key,
+                                  ProductNames = X.Select(X => X.ProductName)
+                                });
+
+
+            foreach (var group in Groupproducts)
+            {
+                Console.WriteLine($"Group {group.Category}::");
+
+                foreach (var name in group.ProductNames)
+                    Console.WriteLine($"   {name}");
+            }
 
             #endregion
         }
