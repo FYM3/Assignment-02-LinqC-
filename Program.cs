@@ -149,13 +149,26 @@ namespace Assignment_02_LinqC_
 
             #region Q11
 
-            var MostEXPENSIVE = Source.ProductList.Max(X => X.UnitPrice);
-            var MostCHEAPEST = Source.ProductList.Min(X => X.UnitPrice);
+            //var MostEXPENSIVE = Source.ProductList.Max(X => X.UnitPrice);
+            //var MostCHEAPEST = Source.ProductList.Min(X => X.UnitPrice);
 
-            Console.WriteLine($"Most Expensive Product: {MostEXPENSIVE}");
-            Console.WriteLine($"Most Cheapest Product: {MostCHEAPEST}");
+            //Console.WriteLine($"Most Expensive Product: {MostEXPENSIVE}");
+            //Console.WriteLine($"Most Cheapest Product: {MostCHEAPEST}");
 
             #endregion
+
+            #region Q12
+
+            var Allproduct = Source.ProductList
+                            .Select(X => X.Category)
+                            .Distinct();
+
+
+            foreach (var product in Allproduct)
+                Console.WriteLine($"Category: {product}");
+
+            #endregion
+
         }
     }
 }
