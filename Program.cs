@@ -159,16 +159,26 @@ namespace Assignment_02_LinqC_
 
             #region Q12
 
-            var Allproduct = Source.ProductList
-                            .Select(X => X.Category)
-                            .Distinct();
+            //var Allproduct = Source.ProductList
+            //                .Select(X => X.Category)
+            //                .Distinct();
 
 
-            foreach (var product in Allproduct)
-                Console.WriteLine($"Category: {product}");
+            //foreach (var product in Allproduct)
+            //    Console.WriteLine($"Category: {product}");
 
             #endregion
 
+            #region Q13
+
+            int[] setA = { 1, 3, 5, 7, 9, 11, 13 };
+            int[] setB = { 3, 6, 9, 12, 15, 13 };
+
+            var onlyInA = setA.Except(setB);
+
+            Console.WriteLine($"Elements only in set A: {string.Join(", ", onlyInA)}");
+
+            #endregion
         }
     }
 }
