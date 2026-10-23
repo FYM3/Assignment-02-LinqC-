@@ -96,45 +96,53 @@ namespace Assignment_02_LinqC_
 
             #region Q8
 
-            var Finaallcategories = Source.ProductList
-                                    .GroupBy(X => X.Category)
-                                    .Select(X => new
-                                    {
-                                        Category = X.Key,
-                                        ProductName = X.Select(X => X.ProductName),
-                                        ProductCount = X.Count()
-                                    })
-                                    .Where(X => X.ProductCount > 3);
+            //var Finaallcategories = Source.ProductList
+            //                        .GroupBy(X => X.Category)
+            //                        .Select(X => new
+            //                        {
+            //                            Category = X.Key,
+            //                            ProductName = X.Select(X => X.ProductName),
+            //                            ProductCount = X.Count()
+            //                        })
+            //                        .Where(X => X.ProductCount > 3);
 
 
-            foreach (var group in Finaallcategories)
-            {
-                Console.WriteLine($"Group {group.Category}::");
+            //foreach (var group in Finaallcategories)
+            //{
+            //    Console.WriteLine($"Group {group.Category}::");
 
-                foreach (var name in group.ProductName)
-                    Console.WriteLine($"   {name}");
-            }
+            //    foreach (var name in group.ProductName)
+            //        Console.WriteLine($"   {name}");
+            //}
 
             #endregion
 
             #region Q9
 
-            var CustomerGroups = from S in Source.CustomerList
-                              group S by S.Country
-                                   into G
-                              select new
-                              {
-                                  Country = G.Key,
-                                  Count = G.Count(),
-                                  TotalOrderValue = G.SelectMany(C => C.Orders).Sum(O => O.Total)
-                              };
+            //var CustomerGroups = from S in Source.CustomerList
+            //                  group S by S.Country
+            //                       into G
+            //                  select new
+            //                  {
+            //                      Country = G.Key,
+            //                      Count = G.Count(),
+            //                      TotalOrderValue = G.SelectMany(C => C.Orders).Sum(O => O.Total)
+            //                  };
 
-            foreach (var group in CustomerGroups)
-            {
-                Console.WriteLine($"Country: {group.Country}");
-                Console.WriteLine($"Count: {group.Count}");
-                Console.WriteLine($"Total Order Value: {group.TotalOrderValue}");
-            }
+            //foreach (var group in CustomerGroups)
+            //{
+            //    Console.WriteLine($"Country: {group.Country}");
+            //    Console.WriteLine($"Count: {group.Count}");
+            //    Console.WriteLine($"Total Order Value: {group.TotalOrderValue}");
+            //}
+
+            #endregion
+
+            #region Q10
+
+            var TotalNumber = Source.ProductList.Sum(X => X.UnitsInStock);
+
+            Console.WriteLine($"Total number of units in stock: {TotalNumber}");
 
             #endregion
         }
