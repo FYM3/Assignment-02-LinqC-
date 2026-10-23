@@ -182,12 +182,20 @@ namespace Assignment_02_LinqC_
 
             #region Q14
 
-            string[] list1 = { "Germany", "France", "UK", "Spain" };
-            string[] list2 = { "france", "SPAIN", "Italy" };
+            //string[] list1 = { "Germany", "France", "UK", "Spain" };
+            //string[] list2 = { "france", "SPAIN", "Italy" };
 
-            var onlyInA = list1.Except(list2, StringComparer.OrdinalIgnoreCase);
+            //var onlyInA = list1.Except(list2, StringComparer.OrdinalIgnoreCase);
 
-            Console.WriteLine($"Elements only in set A: {string.Join(", ", onlyInA)}");
+            //Console.WriteLine($"Elements only in set A: {string.Join(", ", onlyInA)}");
+
+            #endregion
+
+            #region Q15
+
+            Dictionary<int, Product> pairs = Source.ProductList.ToDictionary(p => p.ProductID);
+
+            Console.WriteLine($"Product ID: {pairs[18].ProductID}, Product Name: {pairs[18].ProductName}, Category: {pairs[18].Category}");
 
             #endregion
 
